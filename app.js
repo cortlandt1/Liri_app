@@ -50,9 +50,9 @@ const spots = () => {
         }
     ])
         .then(r => {
-            if(r.songInput = ' '){
+            if(r.songInput.length === 0){
                 console.log('MUST INPUT A SONG')
-            }else {
+            } else {
             spotify.search({ type: 'track', query: r.songInput }, function (err, data) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
@@ -77,7 +77,7 @@ const movie = () => {
         }
     ])
         .then(r => {
-            if(r.movieInput = ' '){
+            if(r.movieInput.length === 0){
                 console.log('MUST INPUT A MOVIE')
             }else {
             request(`http://www.omdbapi.com/?t=${r.movieInput}&apikey=${omdb}`, (e, r, d) => {
@@ -105,7 +105,7 @@ const concerts = () => {
         }
     ])
         .then(r => {
-            if(r.bandInput = ' '){
+            if(r.bandInput.length === 0){
                 console.log('MUST INPUT A BAND')
             }else {
             request(`https://rest.bandsintown.com/artists/${r.bandInput}/events?app_id=${concertID}`, (e, r, d) => {
